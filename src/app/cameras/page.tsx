@@ -163,32 +163,34 @@ const handleAddCamera = (newCamera: NewCamera) => {
 };
 
   return (
-    <div className="bg-background flex flex-col items-center py-5">
-      <PageHeader
-        title="Ip Cameraz"
-        icon={<CameraIcon className="h-8 w-8 text-primary" />}
-        onAdd={() => setModalOpen(true)}
-        addLabel="اضافه کردن دوربین"
-        onThemeToggle={handleThemeToggle}
-        darkMode={darkMode}
-      />
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-3xl px-4">
-        {cameras.map((cam) => (
-          <Card key={cam.id} className="shadow-lg">
-            <CardHeader className="flex flex-row items-center gap-2">
-              <CameraIcon className="h-6 w-6 text-primary" />
-              <span className="font-semibold text-lg">{cam.name}</span>
-            </CardHeader>
-            <CardContent className="space-y-2 text-sm">
-              <div><span className="font-medium">IP Address:</span> {cam.ip_address}</div>
-              <div><span className="font-medium">RTSP URL:</span> {cam.rtsp_url}</div>
-              <div><span className="font-medium">Channel:</span> {cam.channel}</div>
-              <div><span className="font-medium">Location:</span> {cam.location}</div>
-            </CardContent>
-          </Card>
-        ))}
+    <div className="bg-background flex flex-col py-5 w-full mx-auto">
+      <div className="w-full mx-auto px-4">
+        <PageHeader
+          title="Ip Cameraz"
+          icon={<CameraIcon className="h-8 w-8 text-primary" />}
+          onAdd={() => setModalOpen(true)}
+          addLabel="اضافه کردن دوربین"
+          onThemeToggle={handleThemeToggle}
+          darkMode={darkMode}
+        />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
+          {cameras.map((cam) => (
+            <Card key={cam.id} className="shadow-lg">
+              <CardHeader className="flex flex-row items-center gap-2">
+                <CameraIcon className="h-6 w-6 text-primary" />
+                <span className="font-semibold text-lg">{cam.name}</span>
+              </CardHeader>
+              <CardContent className="space-y-2 text-sm">
+                <div><span className="font-medium">IP Address:</span> {cam.ip_address}</div>
+                <div><span className="font-medium">RTSP URL:</span> {cam.rtsp_url}</div>
+                <div><span className="font-medium">Channel:</span> {cam.channel}</div>
+                <div><span className="font-medium">Location:</span> {cam.location}</div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+        <CamerasModal open={modalOpen} onClose={() => setModalOpen(false)} onAdd={handleAddCamera} />
       </div>
-      <CamerasModal open={modalOpen} onClose={() => setModalOpen(false)} onAdd={handleAddCamera} />
     </div>
   );
 }
