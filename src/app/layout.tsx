@@ -11,8 +11,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <SidebarProvider>
           <AppSidebar />
           <main>
-            <SidebarTrigger />
-            <div style={{ padding: "1rem", display: "inline" }}>Kose nanat</div>
             {children}
           </main>
         </SidebarProvider>

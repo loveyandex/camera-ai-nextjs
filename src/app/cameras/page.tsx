@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import { PageHeader } from "@/components/page-header";
 import { PlusIcon, CameraIcon } from "@heroicons/react/24/outline";
 import CamerasModal from "./CamerasModal";
 
@@ -59,16 +59,13 @@ const handleAddCamera = (newCamera: NewCamera) => {
 };
 
   return (
-    <div className="min-h-screen bg-background flex flex-col items-center py-10">
-      <div className="flex items-center justify-between w-full max-w-3xl mb-8">
-        <h1 className="text-3xl font-bold flex items-center gap-2">
-          <CameraIcon className="h-8 w-8 text-primary" />
-          Cameras
-        </h1>
-        <Button onClick={() => setModalOpen(true)} className="flex gap-2">
-          <PlusIcon className="h-5 w-5" /> Add Camera
-        </Button>
-      </div>
+    <div className="min-h-screen bg-background flex flex-col items-center py-2">
+      <PageHeader
+        title="Cameraz"
+        icon={<CameraIcon className="h-8 w-8 text-primary" />}
+        onAdd={() => setModalOpen(true)}
+        addLabel="اضافه کردن دوربین"
+      />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-3xl">
         {cameras.map((cam) => (
           <Card key={cam.id} className="shadow-lg">
