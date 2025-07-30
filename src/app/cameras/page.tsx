@@ -35,6 +35,14 @@ const dummyCameras = [
 export default function CamerasPage() {
   const [modalOpen, setModalOpen] = useState(false);
   const [cameras, setCameras] = useState(dummyCameras);
+  const [darkMode, setDarkMode] = useState(false);
+
+  const handleThemeToggle = () => {
+    setDarkMode((prev) => !prev);
+    if (typeof document !== "undefined") {
+      document.documentElement.classList.toggle("dark", !darkMode);
+    }
+  };
 
 interface Camera {
       id: number;
@@ -59,12 +67,14 @@ const handleAddCamera = (newCamera: NewCamera) => {
 };
 
   return (
-    <div className="min-h-screen bg-background flex flex-col items-center py-2">
+    <div className="bg-background flex flex-col items-center py-5">
       <PageHeader
-        title="Cameraz"
+        title="Ip Cameraz"
         icon={<CameraIcon className="h-8 w-8 text-primary" />}
         onAdd={() => setModalOpen(true)}
         addLabel="اضافه کردن دوربین"
+        onThemeToggle={handleThemeToggle}
+        darkMode={darkMode}
       />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-3xl">
         {cameras.map((cam) => (
