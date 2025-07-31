@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { PageHeader } from "@/components/page-header";
 import { PlusIcon, CameraIcon } from "@heroicons/react/24/outline";
-import CamerasModal from "./CamerasModal";
+import CamerasModalAllFieldInOneSHot from "./CamerasModalAllFieldInOneSHot";
 
 const dummyCameras = [
       {
@@ -172,24 +172,28 @@ export default function CamerasPage() {
                         onThemeToggle={handleThemeToggle}
                         darkMode={darkMode}
                   />
-                  <div className="w-full max-w-max">
+                  <div className="w-full">
                         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 w-full">
                               {cameras.map((cam) => (
-                                    <Card key={cam.id} className="shadow-lg">
-                                          <CardHeader className="flex flex-row items-center gap-2">
-                                                <CameraIcon className="h-6 w-6 text-primary" />
-                                                <span className="font-semibold text-lg">{cam.name}</span>
-                                          </CardHeader>
-                                          <CardContent className="space-y-2 text-sm">
-                                                <div><span className="font-medium">IP Address:</span> {cam.ip_address}</div>
-                                                <div><span className="font-medium">RTSP URL:</span> {cam.rtsp_url}</div>
-                                                <div><span className="font-medium">Channel:</span> {cam.channel}</div>
-                                                <div><span className="font-medium">Location:</span> {cam.location}</div>
-                                          </CardContent>
-                                    </Card>
+                                    <div className="*:data-[slot=card]:from-primary/5 *:data-[slot=card]:to-card dark:*:data-[slot=card]:bg-card *:data-[slot=card]:bg-gradient-to-t *:data-[slot=card]:shadow-xs">
+
+                                          <Card key={cam.id} className="shadow-lg">
+                                                <CardHeader className="flex flex-row items-center gap-2">
+                                                      <CameraIcon className="h-6 w-6 text-primary" />
+                                                      <span className="font-semibold text-lg">{cam.name}</span>
+                                                </CardHeader>
+                                                <CardContent className="space-y-2 text-sm">
+                                                      <div><span className="font-medium">IP Address:</span> {cam.ip_address}</div>
+                                                      <div><span className="font-medium">RTSP URL:</span> {cam.rtsp_url}</div>
+                                                      <div><span className="font-medium">Channel:</span> {cam.channel}</div>
+                                                      <div><span className="font-medium">Location:</span> {cam.location}</div>
+                                                </CardContent>
+                                          </Card>
+                                    </div>
+
                               ))}
                         </div>
-                        <CamerasModal open={modalOpen} onClose={() => setModalOpen(false)} onAdd={handleAddCamera} />
+                        <CamerasModalAllFieldInOneSHot open={modalOpen} onClose={() => setModalOpen(false)} onAdd={handleAddCamera} />
                   </div>
             </div>
       );
