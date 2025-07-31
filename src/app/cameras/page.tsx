@@ -131,7 +131,7 @@ const dummyCameras = [
 export default function CamerasPage() {
   const [modalOpen, setModalOpen] = useState(false);
   const [cameras, setCameras] = useState(dummyCameras);
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
 
   const handleThemeToggle = () => {
     setDarkMode((prev) => !prev);
@@ -163,8 +163,8 @@ const handleAddCamera = (newCamera: NewCamera) => {
 };
 
   return (
-    <div className="bg-background flex flex-col py-5 w-full mx-auto">
-      <div className="w-full mx-auto px-4">
+    <div className="bg-background flex flex-col py-5 w-full">
+      <div className="w-full px-4">
         <PageHeader
           title="Ip Cameraz"
           icon={<CameraIcon className="h-8 w-8 text-primary" />}
@@ -173,7 +173,7 @@ const handleAddCamera = (newCamera: NewCamera) => {
           onThemeToggle={handleThemeToggle}
           darkMode={darkMode}
         />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 w-full">
           {cameras.map((cam) => (
             <Card key={cam.id} className="shadow-lg">
               <CardHeader className="flex flex-row items-center gap-2">

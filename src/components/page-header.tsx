@@ -24,7 +24,7 @@ export function PageHeader({
   darkMode?: boolean;
 }) {
   return (
-    <div className="flex items-center justify-between mb-8">
+    <div className="flex items-center justify-between mb-8 w-full w-auto">
       <div className="flex items-center gap-2">
         <SidebarTrigger />
         <h1 className="text-3xl font-bold flex items-center gap-2">
