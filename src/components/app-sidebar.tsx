@@ -14,8 +14,8 @@ import {
 // Menu items.
 const items = [
   {
-    title: "Home",
-    url: "/",
+    title: "Hom_e",
+    url: "/dashboard",
     icon: Home,
   },
   {
@@ -40,7 +40,7 @@ const items = [
   },
 ]
 
-export function AppSidebar() {
+export  function AppSidebar() {
   return (
     <Sidebar>
       <SidebarContent>
